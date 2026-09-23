@@ -68,13 +68,13 @@ const operations = {
 
       if (!response) {
         operations.cashout();
-        return;
       }
       return;
     }
     const parsed = utility.parse(amount);
     if (!parsed) {
       operations.cashout();
+      return;
     }
 
     if (+amount > balance) {
@@ -179,5 +179,4 @@ function run() {
     repeat = false;
   }
 }
-
 run();
