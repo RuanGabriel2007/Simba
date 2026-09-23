@@ -49,6 +49,7 @@ const operations = {
 
     if (!parsed) {
       operations.deposit();
+      return;
     }
 
     balance += +amount;
@@ -67,6 +68,7 @@ const operations = {
 
       if (!response) {
         operations.cashout();
+        return;
       }
       return;
     }
