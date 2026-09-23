@@ -91,17 +91,28 @@ const operations = {
   },
   statement: function () {
     let mensagem = "";
+    let entrada = 0;
+    let saida = 0;
+
     if (statement.length === 0) {
       alert("Ainda nao existem operações no seu extrato.");
       return;
     }
+
     for (let i = 0; i < statement.length; i++) {
       mensagem += statement[i].operation + ": R$" + statement[i].amount + "\n";
+
+      if (statement[i].operation === "Depósito") {
+        entrada += statement[i].amount;
+      } else {
+        saida += statement[i].amount;
+      }
     }
+
+    mensagem += "\nTotal de entrada: R$" + entrada;
+    mensagem += "\nTotal de saída: R$" + saida;
+
     alert(mensagem);
-  },
-  total: function(){
-    
   },
   exit: function () {
     alert("Foi um prazer atendê-lo.");
@@ -111,7 +122,6 @@ const operations = {
     alert("Operação inválida.");
   },
 };
-
 function run() {
   const username = prompt("Digite seu nome:");
 
